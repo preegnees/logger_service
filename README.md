@@ -1,7 +1,7 @@
 # logger_service
 simple http logging server
 # install
-git clone https://github.com/preegnees/logger_service.git
+git clone https://github.com/preegnees/logger_service.git \n
 cd logger_service
 go build logger.go
 # use
