@@ -65,7 +65,6 @@ var server_is_stop bool = false
 func is_stop(timeout int) {
 	for {
 		if server_is_stop {
-			log.Println("завершение программы, скороее потому что не было обращения других сервисов")
 			os.Exit(0)
 		}
 		server_is_stop = true
