@@ -27,7 +27,7 @@ func (lg *Logg) String() string {
 	} else {
 		lev = "error"
 	}
-	return "SERVICE: " + lg.Who + ". LEVEL: " + lev + ". DATE: " + time.Now().Format(time.RFC850) + ". MESSAGE: " + lg.Message + ".\n"
+	return "@SERVICE@: " + lg.Who + ". @LEVEL@: " + lev + ". @DATE@: " + time.Now().Format(time.RFC850) + ". @MESSAGE@: " + lg.Message + ".\n"
 }
 
 func logger(w http.ResponseWriter, r *http.Request) {
