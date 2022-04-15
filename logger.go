@@ -17,7 +17,7 @@ type Logg struct {
 	Who     string `json:"who"`
 	Where   string `json:"where"`
 	Level   string `json:"level"`
-	Message string `json:",essage"`
+	Message string `json:"message"`
 }
 
 func (lg *Logg) String() string {
