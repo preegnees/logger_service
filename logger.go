@@ -85,7 +85,7 @@ func main() {
 
 	go is_stop(*timeout)
 
-	log.Println("Прослушиваение http://127.0.0.1:" + strconv.Itoa(*port) + "/; timeout = " + strconv.Itoa(*timeout))
+	log.Println("[logger_service]. прослушиваение http://127.0.0.1:" + strconv.Itoa(*port) + "/; timeout = " + strconv.Itoa(*timeout))
 	http.HandleFunc("/log", logger)
 	http.HandleFunc("/live", live)
 	log.Fatal(http.ListenAndServe(":" + strconv.Itoa(*port), nil))
