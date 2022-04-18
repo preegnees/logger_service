@@ -5,6 +5,8 @@ git clone https://github.com/preegnees/logger_service.git
 
 cd logger_service
 
+git checkout with_automatic_stop
+
 go build logger.go
 # use
 flags: --timeout <x> [default 30 sec] --port <y> [default 5500]
