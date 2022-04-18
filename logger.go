@@ -61,10 +61,10 @@ func (lg *Logg) save_log() {
 
 // точка входа
 func main() {
-	port := flag.Int("port", 5500, "порт, на котором будет подкниматься сервис")
+	port := flag.Int("port", 5500, "port")
 	flag.Parse()
 
-	log.Println("[logger_service]. прослушиваение http://127.0.0.1:" + strconv.Itoa(*port) + "/;")
+	log.Println("[logger_service]. listenning http://127.0.0.1:" + strconv.Itoa(*port) + "/log;")
 	http.HandleFunc("/log", logger)
 	log.Fatal(http.ListenAndServe(":" + strconv.Itoa(*port), nil))
 }
