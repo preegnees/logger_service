@@ -7,9 +7,7 @@ cd logger_service
 
 go build logger.go
 # use
-flags: --timeout <x> [default 30 sec] --port <y> [default 5500]
-
-if there are no get requests for "http://localhost:port/live", then it dies after "timeout" seconds.
+flags: --port <x> [default 5500]
 
 Accepts a logging request "http://localhost:port/log" (post).
 

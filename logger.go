@@ -59,34 +59,12 @@ func (lg *Logg) save_log() {
 	}
 }
 
-// останов сервера
-var server_is_stop bool = false
-
-func is_stop(timeout int) {
-	for {
-		if server_is_stop {
-			os.Exit(0)
-		}
-		server_is_stop = true
-		time.Sleep(time.Duration(timeout) * time.Second)
-	}
-}
-
-func live(w http.ResponseWriter, r *http.Request) {
-	server_is_stop = false
-	w.Write([]byte("0"))
-}
-
 // точка входа
 func main() {
-	timeout := flag.Int("timeout", 30, "время которе будет ожидать сервис без подключения сторонних программ")
 	port := flag.Int("port", 5500, "порт, на котором будет подкниматься сервис")
 	flag.Parse()
 
-	go is_stop(*timeout)
-
-	log.Println("[logger_service]. прослушиваение http://127.0.0.1:" + strconv.Itoa(*port) + "/; timeout = " + strconv.Itoa(*timeout))
+	log.Println("[logger_service]. прослушиваение http://127.0.0.1:" + strconv.Itoa(*port) + "/;")
 	http.HandleFunc("/log", logger)
-	http.HandleFunc("/live", live)
 	log.Fatal(http.ListenAndServe(":" + strconv.Itoa(*port), nil))
 }
